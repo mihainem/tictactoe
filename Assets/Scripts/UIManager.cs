@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Sprite oSprite;
     [SerializeField] private ResultPopup resultPopup;
     [SerializeField] private TextMeshProUGUI score;
-    [SerializeField] private Button settingsButton;
+    [SerializeField] private SettingsPopup settingsPopup;
     [SerializeField] private Transform grid;
 
     private Button[] cellButtons;
@@ -41,14 +41,14 @@ public class UIManager : MonoBehaviour
 
     internal void ShowLose()
     {
-        Debug.Log("Player Loses");
-        resultPopup.UpdateResult("You lost!");
+        Debug.Log("Player Lost!");
+        resultPopup.ShowResult("You lost!");
     }
 
     internal void ShowTie()
     {
         Debug.Log("It's a Tie");
-        resultPopup.UpdateResult("It's a Tie!");
+        resultPopup.ShowResult("It's a Tie!");
     }
 
     public void SetResultPopup(bool active)
@@ -58,8 +58,8 @@ public class UIManager : MonoBehaviour
 
     internal void ShowWin()
     {
-        Debug.Log("Player Wins");
-        resultPopup.UpdateResult("You Win!");
+        Debug.Log("Player Won!");
+        resultPopup.ShowResult("You Win!");
     }
 
     internal void UpdateScore(ScoreKeeper scoreKeeper)
@@ -67,5 +67,16 @@ public class UIManager : MonoBehaviour
         string scoreString = scoreKeeper.ToString();
         score.text = scoreString;
         resultPopup.UpdateScore(scoreString);
+    }
+
+    internal void ShowSettings()
+    {
+        settingsPopup.gameObject.SetActive(true);
+    }
+
+    internal void ShowScore()
+    {
+        resultPopup.PrepareToShowScoreOnly();
+        SetResultPopup(true);
     }
 }
