@@ -1,11 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using Zenject;
 
 public class ButtonActions : MonoBehaviour
 {
-    public void TapedCell()
+    [Inject] private GameManager gameManager;
+    private Button cellButton;
+    private int childIndex;
+
+    private void Awake()
     {
-        Debug.Log("user tapped cell");
+        cellButton = GetComponent<Button>();
+        childIndex = transform.GetSiblingIndex();
     }
+
+    public void TappedCell()
+    {
+        gameManager.TapedCell(cellButton, childIndex);
+    }
+
+    public void TappedPlay()
+    {
+        gameManager.PlayGame();
+    }
+
 }
