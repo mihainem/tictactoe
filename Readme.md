@@ -11,7 +11,7 @@ Welcome to the Tic Tac Toe game with a twist! This Unity game features a unique 
   - [How to Play](#how-to-play)
 
 ## Features
-- [ ] 3x3 grid.
+- [x] 3x3 grid.
 - [ ] Tap/Click on cells to place X or O.
 - [ ] Win/Lose/Draw logic for the game.
 - [ ] Score Progression.
