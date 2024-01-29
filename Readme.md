@@ -14,12 +14,12 @@ Welcome to the Tic Tac Toe game with a twist! This Unity game features a unique 
 - [x] 3x3 grid.
 - [x] Tap/Click on cells to place X or O.
 - [x] Win/Lose/Tie logic for the game.
-- [ ] Score Progression.
-- [ ] Reset board.
+- [x] Show Win/Lose/Tie
+- [x] Score Progression.
+- [x] Reset board.
 - [ ] Reset Score.
-- [ ] Play button to start a new match.
-- [ ] Settings button to open settings menu.
-- [ ] Show Win/Lose/Tie
+- [x] Play button to start a new match.
+- [x] Settings button to open settings menu.
 
 ### Settings menu
 - [ ] Tap outside the popup to close the settings.
@@ -31,10 +31,10 @@ Welcome to the Tic Tac Toe game with a twist! This Unity game features a unique 
 ### Stats
 Keep track of your progress with the following stats:
 
-- [ ] **Total:** Number of matches played.
-- [ ] **Wins:** Number of matches won.
-- [ ] **Loses:** Number of matches lost.
-- [ ] **Streak:** Current winning streak (resets to 0 on loss).
+- [x] **Total:** Number of matches played.
+- [x] **Wins:** Number of matches won.
+- [x] **Loses:** Number of matches lost.
+- [x] **Streak:** Current winning streak (resets to 0 on loss).
 
 ## How to Play
 1. Click on the Play button to start a new match.
