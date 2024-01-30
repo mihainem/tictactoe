@@ -7,9 +7,6 @@ using UnityEngine.UI;
 using Zenject;
 
 
-/// <summary>
-/// GridCheckerClass encapsulates all actions on grid and its cells, including checking for valid matches.
-/// </summary>
 public class GridChecker
 {
     public int[] cellsValues;
@@ -29,16 +26,17 @@ public class GridChecker
         }
     }
 
-    public bool IsWinningCombination(int[] cellsValues)
+
+    public bool HasPlayerWon(int playerIndex, int[] cellsValues)
     {
         int cellsPerRow = 3;
 
         for (int i = 0; i < cellsPerRow; i++)
         {
-            if (IsCombinationValid(cellsValues[i], cellsValues[i + cellsPerRow], cellsValues[i + cellsPerRow * 2])
-                || IsCombinationValid(cellsValues[i * cellsPerRow], cellsValues[i * cellsPerRow + 1], cellsValues[i * cellsPerRow + 2])
-                || IsCombinationValid(cellsValues[0], cellsValues[4], cellsValues[8])
-                || IsCombinationValid(cellsValues[2], cellsValues[4], cellsValues[6])
+            if (IsWinningLine(cellsValues[i], cellsValues[i + cellsPerRow], cellsValues[i + cellsPerRow * 2], playerIndex)
+                || IsWinningLine(cellsValues[i * cellsPerRow], cellsValues[i * cellsPerRow + 1], cellsValues[i * cellsPerRow + 2], playerIndex)
+                || IsWinningLine(cellsValues[0], cellsValues[4], cellsValues[8], playerIndex)
+                || IsWinningLine(cellsValues[2], cellsValues[4], cellsValues[6], playerIndex)
                 )
             {
                 return true;
@@ -50,40 +48,35 @@ public class GridChecker
         return false;
     }
 
-
-    private bool HasWinningCombination()
+    protected bool IsWinningLine(int a, int b, int c, int playerIndex)
     {
-        return IsWinningCombination(cellsValues);
-    }
-
-    protected bool IsCombinationValid(int a, int b, int c)
-    {
-        return a != -1 && a == b && b == c;
+        return a == playerIndex && a == b && b == c;
     }
 
 
 
-    internal bool IsComplete()
+    internal bool IsComplete(int[] cells)
     {
-        for (int i = 0; i < cellsValues.Length; i++)
+        for (int i = 0; i < cells.Length; i++)
         {
-            if (cellsValues[i] == -1)
+            if (cells[i] == -1)
                 return false;
         }
         return true;
     }
 
-    internal GameResult GetResult(int playerIndex)
+    public GameResult GetResult(int playerIndex, int[] cells = null)
     {
-        if (HasWinningCombination() && playerIndex == 0)
+
+        if (HasPlayerWon(0, cells ?? cellsValues))
         {
             return GameResult.Win;
         }
-        else if (HasWinningCombination() && playerIndex == 1)
+        else if (HasPlayerWon(1, cells ?? cellsValues))
         {
             return GameResult.Lose;
         }
-        else if (IsComplete())
+        else if (IsComplete(cells ?? cellsValues))
         {
             return GameResult.Tie;
         }
