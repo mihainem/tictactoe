@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     {
         grid = new GridChecker();
         score = new ScoreKeeper();
-        players = new APlayer[] { new Player(grid, null), new Computer(grid, TapedCell) };
+        players = new APlayer[] { new Player(grid, null), new Computer(grid, ActOnCellTapped) };
     }
 
     public void PlayGame()
@@ -38,6 +38,12 @@ public class GameManager : MonoBehaviour
     }
 
     public void TapedCell(int cellIndex)
+    {
+        if (players[currentPlayerIndex] is Player)
+            ActOnCellTapped(cellIndex);
+    }
+
+    private void ActOnCellTapped(int cellIndex)
     {
         StopAllCoroutines();
         grid.PlaceMove(cellIndex, currentPlayerIndex);
