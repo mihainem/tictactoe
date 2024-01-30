@@ -20,7 +20,7 @@ Welcome to the Tic Tac Toe game with a twist! This Unity game features a unique 
 - [ ] Reset Score.
 - [x] Play button to start a new match.
 - [x] Settings button to open settings menu.
-- [ ] Include bot auto play.
+- [x] Include bot auto play.
 - [ ] Include Tests
 - [ ] Refactor and optimize
 

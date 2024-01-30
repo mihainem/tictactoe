@@ -8,18 +8,16 @@ public class ButtonActions : MonoBehaviour
 {
     [Inject] private GameManager gameManager;
     [Inject] private UIManager ui;
-    private Button cellButton;
     private int childIndex;
 
     private void Awake()
     {
-        cellButton = GetComponent<Button>();
         childIndex = transform.GetSiblingIndex();
     }
 
     public void TappedCell()
     {
-        gameManager.TapedCell(cellButton, childIndex);
+        gameManager.TapedCell(childIndex);
     }
 
     public void TappedPlay()

@@ -24,11 +24,11 @@ public class UIManager : MonoBehaviour
         cellButtons = grid.GetComponentsInChildren<Button>();
     }
 
-    internal void PlaceSprite(Button cell, int currentPlayerIndex)
+    internal void PlaceSprite(int cellIndex, int currentPlayerIndex)
     {
-        cell.interactable = false;
-        cell.image.sprite = currentPlayerIndex == 0 ? xSprite : oSprite;
-        cell.image.color = Color.white;
+        cellButtons[cellIndex].interactable = false;
+        cellButtons[cellIndex].image.sprite = currentPlayerIndex == 0 ? xSprite : oSprite;
+        cellButtons[cellIndex].image.color = Color.white;
     }
 
     internal void ResetCells()
@@ -40,6 +40,13 @@ public class UIManager : MonoBehaviour
             cellButtons[i].image.color = Color.black;
             cellButtons[i].image.sprite = null;
         }
+    }
+
+    internal void ShowWin()
+    {
+        Debug.Log("Player Won!");
+        resultPopup.UpdateResult("You Win!");
+        SetResultPopupActive(true);
     }
 
     internal void ShowLose()
@@ -66,12 +73,6 @@ public class UIManager : MonoBehaviour
         scorePopup.gameObject.SetActive(active);
     }
 
-    internal void ShowWin()
-    {
-        Debug.Log("Player Won!");
-        resultPopup.UpdateResult("You Win!");
-        SetResultPopupActive(true);
-    }
 
     internal void UpdateScore(ScoreKeeper scoreKeeper)
     {
@@ -89,7 +90,5 @@ public class UIManager : MonoBehaviour
     internal void ShowScore()
     {
         SetScorePopupActive(true);
-        //resultPopup.PrepareToShowScoreOnly();
-        //SetResultPopupActive(true);
     }
 }

@@ -222,8 +222,8 @@ RectTransform:
   m_Children:
   - {fileID: 1866982290390356100}
   - {fileID: 977367999}
-  - {fileID: 1273896422}
   - {fileID: 1326259634}
+  - {fileID: 1273896422}
   - {fileID: 6994266731288298138}
   - {fileID: 8858291567249119175}
   m_Father: {fileID: 1624107607}
@@ -951,14 +951,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScorePopup
       objectReference: {fileID: 0}
-    - target: {fileID: 5547011887427082691, guid: 5090d7cea44944accab976db136df0c2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5692856557666175533, guid: 5090d7cea44944accab976db136df0c2, type: 3}
-      propertyPath: m_Name
-      value: PopupScore
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -977,54 +969,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 418423736}
     m_Modifications:
-    - target: {fileID: 2403024219945445431, guid: 1cb723ee9b71e4450b195273a21339f0, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2403024219945445431, guid: 1cb723ee9b71e4450b195273a21339f0, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2403024219945445431, guid: 1cb723ee9b71e4450b195273a21339f0, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 716
-      objectReference: {fileID: 0}
-    - target: {fileID: 2403024219945445431, guid: 1cb723ee9b71e4450b195273a21339f0, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 358
-      objectReference: {fileID: 0}
-    - target: {fileID: 2403024219945445431, guid: 1cb723ee9b71e4450b195273a21339f0, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -70.833336
-      objectReference: {fileID: 0}
-    - target: {fileID: 3954909627833545588, guid: 1cb723ee9b71e4450b195273a21339f0, type: 3}
-      propertyPath: closeOnClickOutside
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4944099598497599743, guid: 1cb723ee9b71e4450b195273a21339f0, type: 3}
-      propertyPath: m_Name
-      value: Buttons
-      objectReference: {fileID: 0}
-    - target: {fileID: 7237889440551825994, guid: 1cb723ee9b71e4450b195273a21339f0, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7237889440551825994, guid: 1cb723ee9b71e4450b195273a21339f0, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7237889440551825994, guid: 1cb723ee9b71e4450b195273a21339f0, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 716
-      objectReference: {fileID: 0}
-    - target: {fileID: 7237889440551825994, guid: 1cb723ee9b71e4450b195273a21339f0, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 358
-      objectReference: {fileID: 0}
-    - target: {fileID: 7237889440551825994, guid: 1cb723ee9b71e4450b195273a21339f0, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -232.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7316705710109617935, guid: 1cb723ee9b71e4450b195273a21339f0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1108,10 +1052,6 @@ PrefabInstance:
     - target: {fileID: 7630838723930624684, guid: 1cb723ee9b71e4450b195273a21339f0, type: 3}
       propertyPath: m_Name
       value: SettingsPopup
-      objectReference: {fileID: 0}
-    - target: {fileID: 7630838723930624684, guid: 1cb723ee9b71e4450b195273a21339f0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1225,10 +1165,6 @@ PrefabInstance:
     - target: {fileID: 5608749664555500878, guid: 2c1c74d9617f14a6a8858156f4eb96c6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8228550429009437592, guid: 2c1c74d9617f14a6a8858156f4eb96c6, type: 3}
-      propertyPath: m_Name
-      value: ResultScore
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

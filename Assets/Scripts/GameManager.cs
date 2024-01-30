@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -11,6 +12,7 @@ public class GameManager : MonoBehaviour
     [Inject] private UIManager ui;
     private GridChecker grid;
     private ScoreKeeper score;
+    private APlayer[] players;
 
 
     private int currentPlayerIndex = 0;
@@ -19,6 +21,7 @@ public class GameManager : MonoBehaviour
     {
         grid = new GridChecker();
         score = new ScoreKeeper();
+        players = new APlayer[] { new Player(grid, null), new Computer(grid, TapedCell) };
     }
 
     public void PlayGame()
@@ -34,22 +37,33 @@ public class GameManager : MonoBehaviour
         ui.SetResultPopupActive(false);
     }
 
-    public void TapedCell(Button cellImage, int cellIndex)
+    public void TapedCell(int cellIndex)
     {
+        StopAllCoroutines();
         grid.PlaceMove(cellIndex, currentPlayerIndex);
-        ui.PlaceSprite(cellImage, currentPlayerIndex);
-        TryShowResult();
-        SwitchPlayer();
+        ui.PlaceSprite(cellIndex, currentPlayerIndex);
+        StartCoroutine(TryShowResult());
     }
 
-    private void SwitchPlayer()
+    private IEnumerator TryShowResult()
     {
-        currentPlayerIndex = (currentPlayerIndex + 1) % 2;
+
+        GameResult result = TryGetResult();
+        if (result != GameResult.Playing)
+        {
+            yield return new WaitForSeconds(1);
+            ShowResult(result);
+        }
+        else
+        {
+            SwitchPlayer();
+            yield return new WaitForSeconds(1);
+            TryPlayNextMove();
+        }
     }
 
-    private void TryShowResult()
+    void ShowResult(GameResult result)
     {
-        GameResult result = grid.GetResult(currentPlayerIndex);
         switch (result)
         {
             case GameResult.Win:
@@ -65,10 +79,26 @@ public class GameManager : MonoBehaviour
                 ui.ShowTie();
                 break;
         }
-        if (result != GameResult.Playing)
-        {
-            ui.UpdateScore(score);
-        }
+        ui.UpdateScore(score);
+    }
+
+    private void TryPlayNextMove()
+    {
+        players[currentPlayerIndex].PlayTurn();
+    }
+
+    private void SwitchPlayer()
+    {
+        players[currentPlayerIndex].OnExitState();
+        currentPlayerIndex = (currentPlayerIndex + 1) % 2;
+        players[currentPlayerIndex].OnEnterState();
+    }
+
+    private GameResult TryGetResult()
+    {
+        GameResult result = grid.GetResult(currentPlayerIndex);
+
+        return result;
     }
 
     internal void QuitGame()
