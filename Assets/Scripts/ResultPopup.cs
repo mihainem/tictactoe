@@ -11,20 +11,9 @@ public class ResultPopup : Popup
     [SerializeField] private TextMeshProUGUI score;
     [SerializeField] private GameObject playButton;
 
-    internal void SetPlayButton(bool active)
-    {
-        playButton.SetActive(active);
-    }
 
-    internal void PrepareToShowScoreOnly()
+    internal void UpdateResult(string resultText)
     {
-        SetPlayButton(false);
-        result.text = "";
-    }
-
-    internal void ShowResult(string resultText)
-    {
-        SetPlayButton(true);
         result.text = resultText;
     }
 

@@ -20,13 +20,14 @@ Welcome to the Tic Tac Toe game with a twist! This Unity game features a unique 
 - [ ] Reset Score.
 - [x] Play button to start a new match.
 - [x] Settings button to open settings menu.
+- [ ] Include bot auto play.
+- [ ] Include Tests
+- [ ] Refactor and optimize
 
 ### Settings menu
-- [ ] Tap outside the popup to close the settings.
-- [ ] Info button to show game stats
-- [ ] Quit button to exit the game
-- [ ] Settings button for customizing the game.
-- [ ] Quit button to exit the game.
+- [x] Tap outside the popup to close the settings.
+- [x] Info button to show game stats.
+- [x] Quit button to exit the game.
 
 ### Stats
 Keep track of your progress with the following stats:

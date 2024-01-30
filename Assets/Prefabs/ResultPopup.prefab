@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 670972017858590348}
   - component: {fileID: 155646204697575163}
   m_Layer: 5
-  m_Name: Result
+  m_Name: Win/Lose/Tie-Result
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -225,6 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fca9210745a3647bca50541cc5a7de87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  closeOnClickOutside: 0
   result: {fileID: 155646204697575163}
   score: {fileID: 7414305358924569294}
   playButton: {fileID: 3441157273284883002}
@@ -385,7 +386,7 @@ GameObject:
   - component: {fileID: 1286084495475557512}
   - component: {fileID: 7414305358924569294}
   m_Layer: 5
-  m_Name: Score
+  m_Name: ResultScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -9,10 +9,13 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private Sprite xSprite;
     [SerializeField] private Sprite oSprite;
-    [SerializeField] private ResultPopup resultPopup;
     [SerializeField] private TextMeshProUGUI score;
-    [SerializeField] private SettingsPopup settingsPopup;
     [SerializeField] private Transform grid;
+
+    [Header("Popups")]
+    [SerializeField] private ResultPopup resultPopup;
+    [SerializeField] private SettingsPopup settingsPopup;
+    [SerializeField] private ScorePopup scorePopup;
 
     private Button[] cellButtons;
 
@@ -42,24 +45,32 @@ public class UIManager : MonoBehaviour
     internal void ShowLose()
     {
         Debug.Log("Player Lost!");
-        resultPopup.ShowResult("You lost!");
+        resultPopup.UpdateResult("You lost!");
+        SetResultPopupActive(true);
     }
 
     internal void ShowTie()
     {
         Debug.Log("It's a Tie");
-        resultPopup.ShowResult("It's a Tie!");
+        resultPopup.UpdateResult("It's a Tie!");
+        SetResultPopupActive(true);
     }
 
-    public void SetResultPopup(bool active)
+    public void SetResultPopupActive(bool active)
     {
         resultPopup.gameObject.SetActive(active);
+    }
+
+    public void SetScorePopupActive(bool active)
+    {
+        scorePopup.gameObject.SetActive(active);
     }
 
     internal void ShowWin()
     {
         Debug.Log("Player Won!");
-        resultPopup.ShowResult("You Win!");
+        resultPopup.UpdateResult("You Win!");
+        SetResultPopupActive(true);
     }
 
     internal void UpdateScore(ScoreKeeper scoreKeeper)
@@ -67,6 +78,7 @@ public class UIManager : MonoBehaviour
         string scoreString = scoreKeeper.ToString();
         score.text = scoreString;
         resultPopup.UpdateScore(scoreString);
+        scorePopup.SetScoreText(scoreString);
     }
 
     internal void ShowSettings()
@@ -76,7 +88,8 @@ public class UIManager : MonoBehaviour
 
     internal void ShowScore()
     {
-        resultPopup.PrepareToShowScoreOnly();
-        SetResultPopup(true);
+        SetScorePopupActive(true);
+        //resultPopup.PrepareToShowScoreOnly();
+        //SetResultPopupActive(true);
     }
 }

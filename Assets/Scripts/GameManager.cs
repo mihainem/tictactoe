@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
 
     public void PlayGame()
     {
-        Debug.Log("Play");
         ResetGame();
     }
 
@@ -32,7 +31,7 @@ public class GameManager : MonoBehaviour
         currentPlayerIndex = 0;
         grid.ResetCellsValue();
         ui.ResetCells();
-        ui.SetResultPopup(false);
+        ui.SetResultPopupActive(false);
     }
 
     public void TapedCell(Button cellImage, int cellIndex)
@@ -69,7 +68,6 @@ public class GameManager : MonoBehaviour
         if (result != GameResult.Playing)
         {
             ui.UpdateScore(score);
-            ui.SetResultPopup(true);
         }
     }
 
