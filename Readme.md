@@ -36,6 +36,9 @@ Keep track of your progress with the following stats:
 - [x] **Loses:** Number of matches lost.
 - [x] **Streak:** Current winning streak (resets to 0 on loss).
 
+## How to Run
+To experience the game, download the repository and run it in Unity 2022.3.13f1 on either Mac or Windows.
+   
 ## How to Play
 1. Click on the Play button to start a new match.
 2. Play the Tic Tac Toe game against the computer on the 3x3 grid.
