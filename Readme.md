@@ -17,7 +17,6 @@ Welcome to the Tic Tac Toe game with a twist! This Unity game features a unique 
 - [x] Show Win/Lose/Tie
 - [x] Score Progression.
 - [x] Reset board.
-- [ ] Reset Score.
 - [x] Play button to start a new match.
 - [x] Settings button to open settings menu.
 - [x] Include bot auto play.
